@@ -1,0 +1,4 @@
+config/db.php
+.envconfig/db.php
+.env
+config/db.php

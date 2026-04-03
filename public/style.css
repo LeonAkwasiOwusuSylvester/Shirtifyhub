@@ -1,0 +1,258 @@
+/* public/style.css */
+
+:root {
+    /* 🎨 PRIMARY COLORS */
+    --brand-primary: #0f172a;
+    /* Dark navy blue – buttons, nav bar */
+    --brand-blue: #2563eb;
+    /* Bright blue – highlights, active tabs */
+    --brand-blue-hover: #1d4ed8;
+
+    /* 🎨 SECONDARY / ACCENT COLORS */
+    --brand-accent: #dc3545;
+    /* Red – Sale badges, discount highlights */
+    --brand-preorder: #6366f1;
+    /* Indigo – Pre-order badges */
+    --brand-gold: #fbbf24;
+    /* Yellow/gold – star ratings */
+
+    /* 🎨 NEUTRAL COLORS */
+    --bg-main: #f8fafc;
+    /* Soft off-white main background */
+    --bg-card: #ffffff;
+    /* Pure white for cards */
+    --border-color: #e2e8f0;
+    /* Soft gray for borders */
+    --text-dark: #0f172a;
+    /* Near black main text */
+    --text-muted: #64748b;
+    /* Slate gray secondary text */
+
+    /* 📐 BORDERS & RADIUS */
+    --radius-btn: 12px;
+    --radius-card: 16px;
+    --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+}
+
+/* ══ GLOBAL STYLES ══ */
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-dark);
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ══ NAVBAR ══ */
+.navbar {
+    background-color: #ffffff !important;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.custom-search-input {
+    background-color: #f1f5f9 !important;
+    border: 1px solid #e2e8f0 !important;
+    font-size: 0.9rem;
+}
+
+/* ══ PRODUCT CARDS (INDEX & WISHLIST) ══ */
+.product-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-card);
+    padding: 15px;
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+    border-color: #cbd5e1;
+}
+
+/* Dynamic Badges */
+.badge-sale-card {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: var(--brand-accent);
+    color: white;
+    font-size: 0.65rem;
+    font-weight: 800;
+    padding: 4px 10px;
+    border-radius: 6px;
+    text-transform: uppercase;
+    z-index: 2;
+}
+
+.badge-preorder-card {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: var(--brand-preorder);
+    color: white;
+    font-size: 0.65rem;
+    font-weight: 800;
+    padding: 4px 10px;
+    border-radius: 6px;
+    text-transform: uppercase;
+    z-index: 2;
+}
+
+.discount-tag {
+    position: absolute;
+    top: 45px;
+    /* Sits perfectly below the SALE badge */
+    left: 15px;
+    background: var(--brand-primary);
+    color: #ffffff;
+    font-size: 0.7rem;
+    font-weight: 800;
+    padding: 3px 8px;
+    border-radius: 6px;
+    z-index: 2;
+    box-shadow: var(--shadow-sm);
+}
+
+.card-img {
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8fafc;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    overflow: hidden;
+}
+
+.card-img img {
+    max-height: 90%;
+    max-width: 90%;
+    object-fit: contain;
+    mix-blend-mode: multiply;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover .card-img img {
+    transform: scale(1.08);
+}
+
+.product-name {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    text-decoration: none;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Pricing UI */
+.price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    margin-bottom: 15px;
+}
+
+.price-discounted {
+    color: var(--brand-accent);
+    font-weight: 800;
+    font-size: 1.1rem;
+}
+
+.price-crossed {
+    text-decoration: line-through;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+/* ══ BUTTONS ══ */
+.btn-add-cart-index {
+    background-color: #ffffff;
+    color: var(--brand-primary);
+    border: 2px solid var(--brand-primary);
+    border-radius: 10px;
+    padding: 10px;
+    width: 100%;
+    font-weight: 700;
+    font-size: 0.8rem;
+    transition: 0.2s;
+    margin-top: auto;
+    /* Pushes button to bottom of card */
+}
+
+.btn-add-cart-index:hover {
+    background-color: var(--brand-primary);
+    color: #ffffff;
+}
+
+/* ══ PRODUCT PAGE (PREMIUM UI) ══ */
+.thumb-img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: 0.2s;
+    background: #f1f5f9;
+}
+
+.thumb-img.active {
+    border-color: var(--brand-primary);
+}
+
+.main-img-display {
+    background: #f1f5f9;
+    border-radius: 20px;
+    padding: 40px;
+}
+
+.price-new {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--brand-primary);
+}
+
+.discount-pill {
+    background: #fee2e2;
+    color: #dc2626;
+    font-weight: 800;
+    font-size: 0.8rem;
+    padding: 4px 12px;
+    border-radius: 50px;
+}
+
+/* ══ TABS ══ */
+.nav-tabs-custom .nav-link {
+    border: none;
+    color: var(--text-muted);
+    font-weight: 700;
+    padding: 15px 25px;
+}
+
+.nav-tabs-custom .nav-link.active {
+    color: var(--brand-primary);
+    background: transparent;
+    border-bottom: 3px solid var(--brand-primary);
+}
+
+/* ══ MISC ══ */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .card-img {
+        height: 150px;
+    }
+
+    .price-new {
+        font-size: 1.8rem;
+    }
+}
